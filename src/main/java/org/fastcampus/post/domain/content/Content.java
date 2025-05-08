@@ -1,0 +1,26 @@
+package org.fastcampus.post.domain.content;
+
+import org.fastcampus.post.domain.common.DatetimeInfo;
+
+public abstract class Content {
+    String contentText;
+    final DatetimeInfo datetimeInfo;
+
+    public Content(String contentText) {
+        checkText(contentText);
+        this.contentText = contentText;
+        this.datetimeInfo = new DatetimeInfo(false, null);
+    }
+
+    public void updateContent(String updateContent) {
+        checkText(updateContent);
+        this.contentText = updateContent;
+        this.datetimeInfo.updateEditDateTime();
+    }
+
+    protected abstract void checkText(String contentText);
+
+    public String getContentText() {
+        return contentText;
+    }
+}

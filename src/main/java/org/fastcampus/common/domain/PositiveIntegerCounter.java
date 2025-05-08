@@ -1,11 +1,11 @@
-package org.fastcampus.user.domain;
+package org.fastcampus.common.domain;
 
-public class UserRelationCounter {
+public class PositiveIntegerCounter {
 
     private int count;
 
-    public UserRelationCounter(int count) {
-        this.count = count;
+    public PositiveIntegerCounter() {
+        this.count = 0;
     }
 
     public void increase() {
