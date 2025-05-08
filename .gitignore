@@ -1,0 +1,41 @@
+# Java compiled files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Build output
+/build/
+.gradle/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# IntelliJ
+out/
+
+# Kotlin
+*.kts~
+
+# private settings
+*.properties
+*.yml
+
