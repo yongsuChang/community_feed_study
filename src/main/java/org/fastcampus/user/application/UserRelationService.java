@@ -1,5 +1,6 @@
 package org.fastcampus.user.application;
 
+import org.fastcampus.user.application.dto.FollowUserRequestDto;
 import org.fastcampus.user.application.interfaces.UserRelationRepository;
 
 public class UserRelationService {
@@ -18,10 +19,9 @@ public class UserRelationService {
         this.userRelationRepository = userRelationRepository;
     }
 
-    public void follow(Long userId, Long targetUserId) {
-
-        var user = userService.getUser(userId);
-        var targetUser = userService.getUser(targetUserId);
+    public void follow(FollowUserRequestDto dto) {
+        var user = userService.getUser(dto.userId());
+        var targetUser = userService.getUser(dto.targetUserId());
 
         if(userRelationRepository.isAlreadyFollow(user, targetUser)) {
             throw new IllegalArgumentException("You are already following this user.");
@@ -31,9 +31,9 @@ public class UserRelationService {
         userRelationRepository.save(user, targetUser);
     }
 
-    public void unfollow(Long userId, Long targetUserId) {
-        var user = userService.getUser(userId);
-        var targetUser = userService.getUser(targetUserId);
+    public void unfollow(FollowUserRequestDto dto) {
+        var user = userService.getUser(dto.userId());
+        var targetUser = userService.getUser(dto.targetUserId());
 
         if(!userRelationRepository.isAlreadyFollow(user, targetUser)) {
             throw new IllegalArgumentException("You are not following this user.");
