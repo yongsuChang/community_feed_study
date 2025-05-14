@@ -9,7 +9,7 @@ public abstract class Content {
     public Content(String contentText) {
         checkText(contentText);
         this.contentText = contentText;
-        this.datetimeInfo = new DatetimeInfo(false, null);
+        this.datetimeInfo = new DatetimeInfo();
     }
 
     public void updateContent(String updateContent) {

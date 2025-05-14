@@ -7,9 +7,9 @@ public class DatetimeInfo {
     private boolean isEdited;
     private LocalDateTime dateTime;
 
-    public DatetimeInfo(boolean isEdited, LocalDateTime dateTime) {
-        this.isEdited = isEdited;
-        this.dateTime = dateTime;
+    public DatetimeInfo() {
+        this.isEdited = false;
+        this.dateTime = LocalDateTime.now();
     }
 
     public void updateEditDateTime() {
