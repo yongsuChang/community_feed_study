@@ -16,7 +16,7 @@ public class CommentTest {
     private final User user = new User(1L, info);
     private final User otherUser = new User(2L, info);
 
-    private final Post post = new Post(1L, user, new PostContent("content"));
+    private final Post post = Post.createDefaultPost(1L, user, "content");
     private final Comment comment = new Comment(1L, post, user, new CommentContent("content"));
 
     @Test

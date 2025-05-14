@@ -2,6 +2,7 @@ package org.fastcampus.post.domain.comment;
 
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 import org.fastcampus.post.domain.Post;
+import org.fastcampus.post.domain.content.CommentContent;
 import org.fastcampus.post.domain.content.Content;
 import org.fastcampus.user.domain.User;
 
@@ -13,7 +14,11 @@ public class Comment {
     private final Content content;
     private final PositiveIntegerCounter likeCount;
 
-    public Comment(Long id, Post post, User author, Content content) {
+    public static Comment createComment(Long id, Post post, User author, String contentText) {
+        return new Comment(id, post, author, new CommentContent(contentText));
+    }
+
+    protected Comment(Long id, Post post, User author, Content content) {
         if (author == null) {
             throw new IllegalArgumentException("Author cannot be null.");
         }
